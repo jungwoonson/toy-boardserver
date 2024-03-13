@@ -1,4 +1,4 @@
-package com.toy.boardserver.boardserver;
+package com.boardserver;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
