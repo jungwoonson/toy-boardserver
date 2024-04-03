@@ -14,7 +14,7 @@ public class SHA256Util {
             sh = MessageDigest.getInstance(ENCRYPTION_KEY);
             sh.update(string.getBytes());
             byte[] byteData = sh.digest();
-            StringBuffer sb = new StringBuffer();
+            StringBuilder sb = new StringBuilder();
             for (byte byteDatum : byteData) {
                 sb.append(Integer.toString((byteDatum & 0xff) + 0x100, 16).substring(1));
             }
