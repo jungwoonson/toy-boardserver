@@ -53,7 +53,7 @@
     <select id="findByUserIdAndPassword" resultType="com.boardserver.dto.UserDTO">
         SELECT id,
                userId,
-               passWord,
+               password,
                nickName,
                createTime,
                isWithDraw,

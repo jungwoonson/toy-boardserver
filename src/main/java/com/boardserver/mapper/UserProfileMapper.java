@@ -34,5 +34,5 @@ public interface UserProfileMapper {
 
     int register(UserDTO user);
 
-    UserDTO findByUserIdAndPassword(String id, String cryptoPassword);
+    UserDTO findByUserIdAndPassword(String userId, String password);
 }

@@ -100,15 +100,15 @@ public class UserController {
     public ResponseEntity<LoginResponse> deleteId(@RequestBody UserDeleteId userDeleteId,
                                                   HttpSession session) {
         ResponseEntity<LoginResponse> responseEntity = null;
-        String Id = SessionUtil.getLoginMemberId(session);
+        String id = SessionUtil.getLoginMemberId(session);
 
         try {
-            UserDTO userInfo = userService.login(Id, userDeleteId.getPassword());
-            userService.deleteId(Id, userDeleteId.getPassword());
+            UserDTO userInfo = userService.login(userDeleteId.getId(), userDeleteId.getPassword());
+            userService.deleteId(id, userDeleteId.getPassword());
             LoginResponse loginResponse = LoginResponse.success(userInfo);
-            responseEntity = new ResponseEntity<LoginResponse>(loginResponse, HttpStatus.OK);
+            responseEntity = new ResponseEntity<>(loginResponse, HttpStatus.OK);
         } catch (RuntimeException e) {
-            log.info("deleteID 실패");
+            log.info("deleteId 실패");
             responseEntity = FAIL_RESPONSE;
         }
         return responseEntity;
