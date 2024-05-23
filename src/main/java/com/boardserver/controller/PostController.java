@@ -72,11 +72,10 @@ public class PostController {
     @DeleteMapping("{postId}")
     @LoginCheck(type = LoginCheck.UserType.USER)
     public ResponseEntity<CommonResponse<PostDeleteRequest>> deleteposts(String accountId,
-                               @PathVariable(name = "postId") int postId,
-                               @RequestBody PostDeleteRequest postDeleteRequest) {
+                               @PathVariable(name = "postId") int postId) {
         UserDTO memberInfo = userService.getUserInfo(accountId);
         postService.deleteProduct(memberInfo.getId(), postId);
-        CommonResponse<PostDeleteRequest> commonResponse = new CommonResponse<>(HttpStatus.OK, "SUCCESS", "deleteposts", postDeleteRequest);
+        CommonResponse<PostDeleteRequest> commonResponse = new CommonResponse<>(HttpStatus.OK, "SUCCESS", "deleteposts", new PostDeleteRequest(postId, memberInfo.getId()));
         return ResponseEntity.ok(commonResponse);
     }
 
@@ -104,6 +103,7 @@ public class PostController {
 
     @Setter
     @Getter
+    @AllArgsConstructor
     private static class PostDeleteRequest {
         private int id;
         private int accountId;

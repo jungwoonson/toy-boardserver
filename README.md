@@ -22,10 +22,12 @@ create table post (
     name varchar(50),
     isAdmin tinyint,
     contents varchar(500),
-    crateTime datetime,
+    createTime datetime,
+    updateTIme datetime,
     views int,
     categoryId int,
     userId int,
+    fileId int,
     FOREIGN KEY(categoryId) REFERENCES category(id),
     FOREIGN KEY(userId) REFERENCES user(id)
 );

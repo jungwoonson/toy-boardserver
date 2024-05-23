@@ -55,12 +55,12 @@ public class PostServiceImpl implements PostService {
     }
 
     @Override
-    public void deleteProduct(int userId, int productId) {
-        if (userId != 0 && productId != 0) {
-            postMapper.deleteProduct(productId);
+    public void deleteProduct(int userId, int postId) {
+        if (userId != 0 && postId != 0) {
+            postMapper.deleteProduct(postId);
         } else {
-            log.error("deleteProudct ERROR! {}", productId);
-            throw new RuntimeException("updateProducts ERROR! 물품 삭제 메서드를 확인해주세요\n" + "Params : " + productId);
+            log.error("deleteProudct ERROR! {}", postId);
+            throw new RuntimeException("updateProducts ERROR! 물품 삭제 메서드를 확인해주세요\n" + "Params : " + postId);
         }
     }
 }
